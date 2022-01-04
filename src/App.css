@@ -1,7 +1,29 @@
+html,
+body {
+  min-width: 500px;
+}
+.page {
+  padding: 20px;
+}
 .App {
   text-align: center;
 }
-
+.box {
+  text-align: left;
+  border: black ridge 1px;
+  border-radius: 10px;
+  margin: 10px auto;
+  width: 20rem;
+  padding-left: 10px;
+}
+.searchTerm {
+  border: 3px solid #00b4cc;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9dbfaf;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
