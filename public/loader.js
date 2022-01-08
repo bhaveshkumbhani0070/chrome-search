@@ -9,7 +9,7 @@ const on_mouse_move = (e) => {
 const step = () => {
   if (shown) return;
   show();
-  // shown = true;
+  shown = true;
 };
 const show = () => {
   // const d = document.createElement("div");
