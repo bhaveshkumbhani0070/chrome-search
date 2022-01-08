@@ -1,10 +1,15 @@
 {
-  "short_name": "Weather",
-  "name": "Search Weather",
-  "description": "Base Level Extension",
-  "version": "1.0",
-  "manifest_version": 2,
-  "browser_action": {
+  "name": "Homescreen",
+  "description": "Some description id",
+  "version": "0.1",
+  "manifest_version": 3,
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "action": {
     "default_popup": "index.html",
     "default_title": "Open the popup"
   },
@@ -13,20 +18,29 @@
     "48": "logo192.png",
     "128": "logo192.png"
   },
-  "content_security_policy": "script-src 'self' 'sha256-WDhufSqZOEoWULzS4Nwz11MNyHzZClVYbQ2JSt1vfkw'; object-src 'self'",
-  "permissions": [],
+  "permissions": ["tabs","activeTab", "scripting"],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "content_scripts" : [{
+      "matches" : [ "https://*/*",
+        "http://*/*"],
+      "js" : ["loader.js"]
+  }],
+  "web_accessible_resources": [{
+    "resources":  ["index.html"],
+    "matches": ["https://*/*", "http://*/*"]
+  }],
   "commands": {
-      "_execute_browser_action": {
-        "suggested_key": {
-            "default": "Alt+Shift+1"
-        }
-    },
-    "duplicate-tab": {
-        "suggested_key": {
-            "default": "Ctrl+Shift+2",
-            "mac": "Command+Shift+2"
-        },
-        "description": "Duplicates the currently active tab because... why not?"
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+1",
+        "mac": "Alt+Shift+1"
+      },
+      "description": "Opens index.html"
     }
+  },
+  "background":{
+    "service_worker":"background.js"
   }
 }

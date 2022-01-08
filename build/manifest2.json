@@ -1,0 +1,21 @@
+{
+  "name": "Omnibox - New Tab Search",
+  "description": "Type 'nt' plus a search term into the Omnibox to open search in new tab.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "omnibox": { "keyword" : "nt" },
+  "action": {
+    "default_icon": {
+      "16": "logo192.png",
+      "32": "logo192.png"
+      }
+  },
+  "icons": {
+    "16": "logo192.png",
+    "48": "logo192.png",
+    "128": "logo192.png"
+  }
+}
