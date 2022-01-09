@@ -26,6 +26,7 @@ function App() {
       .then((res) => res.json())
       .then((json) => {
         console.log("json", json);
+        setData(json.predictions);
       });
   };
   return (
@@ -37,16 +38,26 @@ function App() {
       >
         <input
           className="searchTerm"
-          placeholder="Enter Post Title"
+          placeholder="Search"
           onChange={(event) => search(event.target.value)}
         />
-        {/* {query &&
+        {query &&
+          data &&
+          data.length &&
           data.map((post, index) => (
-            <div className="box" key={post.id}>
-              <p>{post.title}</p>
-              <p>{post.author}</p>
+            <div
+              className="box"
+              key={post.score}
+              onClick={() =>
+                window.open(
+                  "https://www.google.com/search?q=" + post.text,
+                  "_blank"
+                )
+              }
+            >
+              <p>{post.text}</p>
             </div>
-          ))} */}
+          ))}
       </form>
     </div>
   );

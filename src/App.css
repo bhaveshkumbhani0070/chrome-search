@@ -16,6 +16,10 @@ body {
   width: 20rem;
   padding-left: 10px;
 }
+.box:hover {
+  background-color: #d9d9d9;
+  color: black;
+}
 .searchTerm {
   border: 3px solid #00b4cc;
   padding: 5px;
