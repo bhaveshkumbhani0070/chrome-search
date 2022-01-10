@@ -1,7 +1,17 @@
 let shown = false;
 
-const condition = (e) => e.clientY == 0 && e.movementY < -1;
-const on_mouse_move = (e) => {
+const condition = (e) => {
+  if (e.clientY <= 0) {
+    console.log("e", e);
+  }
+  return e.clientY <= 0;
+};
+
+// const on_mouse_move = (e) => {
+//   if (!condition(e)) return;
+//   step();
+// };
+const on_mouseout = (e) => {
   if (!condition(e)) return;
   step();
 };
@@ -42,5 +52,6 @@ const show = () => {
   document.body.appendChild(iframe);
 };
 window.onload = function () {
-  this.addEventListener("mousemove", on_mouse_move);
+  // this.addEventListener("mousemove", on_mouse_move);
+  this.addEventListener("mouseout", on_mouseout);
 };
